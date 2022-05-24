@@ -16,15 +16,19 @@ Blog.init(
             allowNull: false,
         },
         blog_text: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [5],
             },
         },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
