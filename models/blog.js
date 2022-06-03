@@ -18,9 +18,6 @@ Blog.init(
         blog_text: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [5],
-            },
         },
         date_created: {
             type: DataTypes.DATE,
