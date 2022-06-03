@@ -1,21 +1,20 @@
-const path = require('path');
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-
 // Require express and and express-session
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
 // Require sequelize from our connection.js and 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Require express handlebars and set it up with custom helpers
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({ helpers });
-
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Require express handlebars and set it up with custom helpers
+const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: 'not tellin you',
