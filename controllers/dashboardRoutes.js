@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// render (get) all workout w/ comments (not user specific)
 //  http://localhost:3001/dashboard/
 router.get('/', async (req, res) => {
     try {

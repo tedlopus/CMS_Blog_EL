@@ -2,7 +2,7 @@ async function blogFormHandler(event) {
    event.preventDefault();
 
    const title = document.querySelector('#blog-title').value.trim();
-   const blog_text = document.querySelector('#blog-blog_text').value.trim();
+   const blog_text = document.querySelector('#blog-text').value.trim();
 
    if (title && blog_text) {
      const response = await fetch('/api/blogs/new', {
@@ -17,7 +17,7 @@ async function blogFormHandler(event) {
        document.location = ('/dashboard')
      } else {
        alert('Failed to create blog');
-       document.querySelector('#blog-form').style.display = 'block';
+       document.querySelector('#new-blog-form').style.display = 'block';
      }
    }
  };

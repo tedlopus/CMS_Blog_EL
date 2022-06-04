@@ -5,12 +5,12 @@ const withAuth = require('../utils/auth');
 // http://localhost:3001/
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['user_name'],
         },
       ],
     });
@@ -54,7 +54,7 @@ router.get('/blog/:id', async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 // http://localhost:3001/blog
-router.get('/blog', withAuth, async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -82,6 +82,11 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+http://localhost:3001/signup
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
 module.exports = router;
