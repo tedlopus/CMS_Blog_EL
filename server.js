@@ -11,7 +11,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3006;
 
 // Require express handlebars and set it up with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -40,5 +40,5 @@ app.use(routes);
 
 // Sync sequelize to PORT and does not overwrite
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening at http://localhost:3001/'));
+    app.listen(PORT, () => console.log('Now listening at http://localhost:3006/'));
 });
